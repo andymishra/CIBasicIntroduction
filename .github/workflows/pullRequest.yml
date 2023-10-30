@@ -26,12 +26,12 @@ jobs:
     - name: Swift Packages Cache
       uses: actions/cache@v2
       id: cache
-        with:
-          path: |
+      with:
+        path: |
             Build/SourcePackages
             Build/Build/Products
-          key: ${{ runner.os }}-deps-v1-${{ hashFiles('BILDsolid.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
-          restore-keys: ${{ runner.os }}-deps-v1-
+        key: ${{ runner.os }}-deps-v1-${{ hashFiles('BILDsolid.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+        restore-keys: ${{ runner.os }}-deps-v1-
     - name: Run Tests (No Cache)
       if: steps.setup.outputs.cache-hit != 'true'
       run: bundle exec fastlane unit_test
