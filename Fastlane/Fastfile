@@ -5,6 +5,6 @@ platform :ios do
     desc 'Builds project and executes unit tests'
     lane :unit_test do
       run_tests(scheme: "CIBasicIntroduction",
-      device: ["iPhone 14"])
+      device: "iPhone 14")
     end
 end
